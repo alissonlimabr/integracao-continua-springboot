@@ -5,7 +5,7 @@ on:
       - 'main'
   pull_request:
 jobs:
-  build:
+  Mvn_test: 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -18,7 +18,7 @@ jobs:
         run: mvn --activate-profiles prod test
         
 # job2 essa linha está dando erro:
-  build2:
+  Mvn_package:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
