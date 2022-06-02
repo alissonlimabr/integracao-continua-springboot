@@ -18,6 +18,7 @@ jobs:
         run: mvn --activate-profiles prod test
     
   Mvn_package:
+    needs: Mvn_test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
