@@ -14,6 +14,6 @@ jobs:
       - name: Deploy Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
-          heroku_api_key: heroku_api_key: ${{secrets.CHAVE_HEROKU}}
+          heroku_api_key: ${{secrets.CHAVE_HEROKU}}
           heroku_app_name: "webacademy-alisson"
           heroku_email: "alissonM.l@hotmail.com"
