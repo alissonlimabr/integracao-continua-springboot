@@ -16,8 +16,7 @@ jobs:
           distribution: 'zulu'
       - name: Maven Compile/Test
         run: mvn --activate-profiles prod test
-        
-# job2 essa linha está dando erro:
+    
   Mvn_package:
     runs-on: ubuntu-latest
     steps:
