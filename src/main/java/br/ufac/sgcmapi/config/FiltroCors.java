@@ -16,6 +16,7 @@ public class FiltroCors {
 
         CorsConfiguration configCors = new CorsConfiguration();
         configCors.setAllowCredentials(true);
+        configCors.setAllowedOrigins(Arrays.asList("https://webacademy-grupo5.herokuapp.com"));
         configCors.setAllowedOrigins(Arrays.asList("https://front-end-angular-mu.vercel.app"));
         configCors.setAllowedMethods(Arrays.asList("*"));
         configCors.setAllowedHeaders(Arrays.asList("*"));
