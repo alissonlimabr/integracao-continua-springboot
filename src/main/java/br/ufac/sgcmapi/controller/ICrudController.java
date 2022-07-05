@@ -2,6 +2,8 @@ package br.ufac.sgcmapi.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.http.ResponseEntity;
 
 public interface ICrudController<T> {
@@ -12,7 +14,7 @@ public interface ICrudController<T> {
 
     public ResponseEntity<List<T>> getByAll(String termoBusca);
 
-    public ResponseEntity<T> insert(T objeto);
+    public ResponseEntity<T> insert(T objeto, HttpServletResponse response);
 
     public ResponseEntity<T> update(T objeto);
 

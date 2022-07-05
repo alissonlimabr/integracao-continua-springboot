@@ -1,6 +1,9 @@
 package br.ufac.sgcmapi.controller;
 
+import java.net.URI;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.ufac.sgcmapi.model.Usuario;
 import br.ufac.sgcmapi.service.UsuarioService;
@@ -52,8 +56,11 @@ public class UsuarioController implements ICrudController<Usuario> {
 
     @Override
     @PostMapping("/")
-    public ResponseEntity<Usuario> insert(@RequestBody Usuario objeto) {
+    public ResponseEntity<Usuario> insert(@RequestBody Usuario objeto, HttpServletResponse response) {
         Usuario registro = servico.save(objeto);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{codigo}")
+        .buildAndExpand(registro.getId()).toUri();
+        response.setHeader("Location", uri.toASCIIString());
         return new ResponseEntity<>(registro, HttpStatus.CREATED);
     }
 
